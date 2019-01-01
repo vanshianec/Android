@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Intents</string>
+    <string name="create_button">CREATE NEW CONTACT</string>
+    <string name="text_view">Contacts App</string>
+    <string name="name_hint">please enter your name</string>
+    <string name="location_hint">please enter location</string>
+    <string name="web_hint">please enter your website</string>
+    <string name="number_hint">please enter your number</string>
+</resources>
