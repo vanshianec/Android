@@ -1,11 +1,9 @@
 package com.example.workometer;
 
 import android.app.ActionBar;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.WindowManager;
 
 import java.util.Calendar;
 
@@ -25,34 +23,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.actionbar_layout);
+        //stop keyboard from opening on launch
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initViews();
     }
 
 
     private void initViews() {
-        this.timer1 = new CustomCountDownTimer(this, R.id.progressBarCircle1,
-                R.id.textViewTime1, R.id.imageViewStartStop1, 25200000, (byte) 1);
-        this.timer1.setMax(25200000);
-        this.timer2 = new CustomCountDownTimer(this, R.id.progressBarCircle2,
-                R.id.textViewTime2, R.id.imageViewStartStop2, 7200000, (byte) 2);
-        this.timer2.setMax(7200000);
-        this.timer3 = new CustomCountDownTimer(this, R.id.progressBarCircle3,
-                R.id.textViewTime3, R.id.imageViewStartStop3, 7200000, (byte) 3);
-        this.timer3.setMax(7200000);
-        this.timer4 = new CustomCountDownTimer(this, R.id.progressBarCircle4,
-                R.id.textViewTime4, R.id.imageViewStartStop4, 7200000, (byte) 4);
-        this.timer4.setMax(7200000);
-        this.timer5 = new CustomCountDownTimer(this, R.id.progressBarCircle5,
-                R.id.textViewTime5, R.id.imageViewStartStop5, 600000, (byte) 5);
+        this.timer1 = new CustomCountDownTimer(this, R.id.progressBarCircle1, R.id.task1,
+                R.id.editTime1, R.id.editTime1, R.id.imageViewStartStop1, 600000, (byte) 1);
+        this.timer1.setMax(600000);
+        this.timer2 = new CustomCountDownTimer(this, R.id.progressBarCircle2, R.id.task2,
+                R.id.editTime2, R.id.editTime2, R.id.imageViewStartStop2, 600000, (byte) 2);
+        this.timer2.setMax(600000);
+        this.timer3 = new CustomCountDownTimer(this, R.id.progressBarCircle3, R.id.task3,
+                R.id.editTime3, R.id.editTime3, R.id.imageViewStartStop3, 600000, (byte) 3);
+        this.timer3.setMax(600000);
+        this.timer4 = new CustomCountDownTimer(this, R.id.progressBarCircle4, R.id.task4,
+                R.id.editTime4, R.id.editTime4, R.id.imageViewStartStop4, 600000, (byte) 4);
+        this.timer4.setMax(600000);
+        this.timer5 = new CustomCountDownTimer(this, R.id.progressBarCircle5, R.id.task5,
+                R.id.editTime5, R.id.editTime5, R.id.imageViewStartStop5, 600000, (byte) 5);
         this.timer5.setMax(600000);
-        this.timer6 = new CustomCountDownTimer(this, R.id.progressBarCircle6,
-                R.id.textViewTime6, R.id.imageViewStartStop6, 600000, (byte) 6);
+        this.timer6 = new CustomCountDownTimer(this, R.id.progressBarCircle6, R.id.task6,
+                R.id.editTime6, R.id.editTime6, R.id.imageViewStartStop6, 600000, (byte) 6);
         this.timer6.setMax(600000);
-        this.timer7 = new CustomCountDownTimer(this, R.id.progressBarCircle7,
-                R.id.textViewTime7, R.id.imageViewStartStop7, 600000, (byte) 7);
+        this.timer7 = new CustomCountDownTimer(this, R.id.progressBarCircle7, R.id.task7,
+                R.id.editTime7, R.id.editTime7, R.id.imageViewStartStop7, 600000, (byte) 7);
         this.timer7.setMax(600000);
-        this.timer8 = new CustomCountDownTimer(this, R.id.progressBarCircle8,
-                R.id.textViewTime8, R.id.imageViewStartStop8, 600000, (byte) 8);
+        this.timer8 = new CustomCountDownTimer(this, R.id.progressBarCircle8, R.id.task8,
+                R.id.editTime8, R.id.editTime8, R.id.imageViewStartStop8, 600000, (byte) 8);
         this.timer8.setMax(600000);
     }
 
@@ -98,6 +98,5 @@ public class MainActivity extends AppCompatActivity {
             timer7.onStart();
             timer8.onStart();
         }
-
     }
 }
